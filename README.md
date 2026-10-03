@@ -1,11 +1,20 @@
-Dwi Septha Kurniawan – MODENA Website Operations Specialist (Technical Test)
-October 2026
+# MODENA Website Operations Specialist — Technical Test 
 
-Live Demo:
-https://modena-technical-test-oct-2026.vercel.app
+Dwi Septha Kurniawan
 
-How to Run Locally:
 
-1. Download or extract the project files.
-2. Open index.html in a modern browser.
+## Live Demo
+
+https://modena-technical-test-oct-2026.vercel.app/
+
+
+## How to Run Locally
+
+1. Clone or download this repository.
+2. Open `index.html` in a modern web browser.
 3. No additional installation or dependencies are required.
+
+
+## Notes
+
+This project is a technical test implementation. The inquiry form submission is simulated and does not send data to a backend service.

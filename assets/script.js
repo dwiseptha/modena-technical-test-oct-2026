@@ -161,7 +161,7 @@ whatsappButton.addEventListener("click", () => {
 
     const message = `Halo, saya tertarik dengan produk MODENA KS 3290 GTBE.
 
-    https://modena-technical-test-oct-2026.vercel.app/`;
+https://modena-technical-test-oct-2026.vercel.app/`;
 
     const whatsappUrl =
         `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -208,7 +208,7 @@ inquiryForm.addEventListener("submit", (event) => {
     const messageError =
         document.querySelector("#messageError");
     
-        const formSuccess =
+    const formSuccess =
         document.querySelector("#formSuccess");
     
 
