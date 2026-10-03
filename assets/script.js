@@ -88,42 +88,57 @@ const lightboxClose =
     document.querySelector("#lightboxClose");
 
 
-mainProductImage.addEventListener("click", () => {
+// Open lightbox
+function openLightbox() {
 
-    lightboxImage.src =
-        mainProductImage.src;
+    lightboxImage.src = mainProductImage.src;
 
     imageLightbox.classList.add("active");
+    imageLightbox.setAttribute("aria-hidden", "false");
 
-    imageLightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+    // Move focus to the close button
+    lightboxClose.focus();
+}
 
-});
 
-lightboxClose.addEventListener("click", () => {
+// Close lightbox
+function closeLightbox() {
 
+    // Move focus OUTSIDE the lightbox first
+    mainProductImage.focus();
+
+    // Only after focus has moved, hide the lightbox
     imageLightbox.classList.remove("active");
+    imageLightbox.setAttribute("aria-hidden", "true");
+}
 
-    imageLightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
 
-});
+// Click main image
+mainProductImage.addEventListener("click", openLightbox);
 
+
+// Click close button
+lightboxClose.addEventListener("click", closeLightbox);
+
+
+// Click backdrop
 imageLightbox.addEventListener("click", (event) => {
 
     if (event.target === imageLightbox) {
+        closeLightbox();
+    }
 
-        imageLightbox.classList.remove("active");
+});
 
-        imageLightbox.setAttribute(
-            "aria-hidden",
-            "true"
-        );
 
+// Close with Escape
+document.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Escape" &&
+        imageLightbox.classList.contains("active")
+    ) {
+        closeLightbox();
     }
 
 });
@@ -144,8 +159,9 @@ whatsappButton.addEventListener("click", () => {
     // Open WhatsApp
     const phoneNumber = "6281806424657";
 
-    const message =
-        "Halo, saya tertarik dengan produk MODENA KS 3290 GTBE.";
+    const message = `Halo, saya tertarik dengan produk MODENA KS 3290 GTBE.
+
+    https://modena-technical-test-oct-2026.vercel.app/`;
 
     const whatsappUrl =
         `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -157,6 +173,8 @@ whatsappButton.addEventListener("click", () => {
 // =========================
 // INQUIRY FORM
 // =========================
+
+const formToast = document.querySelector("#formToast");
 
 inquiryForm.addEventListener("submit", (event) => {
 
@@ -248,9 +266,14 @@ inquiryForm.addEventListener("submit", (event) => {
 
 
     // Form is valid
-    formSuccess.textContent =
-        "Thank you! Your inquiry has been submitted.";
+    formToast.classList.add("show");
+    formToast.setAttribute("aria-hidden", "false");
 
+    setTimeout(() => {
+        formToast.classList.remove("show");
+        formToast.setAttribute("aria-hidden", "true");
+    }, 4000);
+    // formSuccess.textContent = "Thank you! Your inquiry has been submitted.";
 
     // Mock submission
     console.log("inquiry_form_submit", {

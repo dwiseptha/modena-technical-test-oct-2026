@@ -77,6 +77,7 @@
                             alt="MODENA KS 3290 GTBE"
                             id="mainProductImage"
                             class="main-product-image"
+                            tabindex="-1"
                         >
                 
                         <button
@@ -315,6 +316,9 @@
     <div
         class="lightbox"
         id="imageLightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Product image preview"
         aria-hidden="true"
     >
 
@@ -333,6 +337,17 @@
             id="lightboxImage"
         >
 
+    </div>
+
+    <div
+        id="formToast"
+        class="form-toast"
+        role="status"
+        aria-live="polite"
+        aria-hidden="true"
+    >
+        <span class="toast-icon">✓</span>
+        <span>Thank you! Your inquiry has been submitted.</span>
     </div>
 
     <!-- JavaScript -->
